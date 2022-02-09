@@ -104,7 +104,7 @@ class MeilisearchConn:
         :param data: List of dicts containing the data to be uploaded
         :param primary_key: Primary key of the index
         """
-        self.meilisearch_client.get_index(index).update_documents(
+        self.meilisearch_client.index(index).update_documents(
             data, primary_key=primary_key)
         logging.info("Exported %d rows to Meilisearch index %s", len(data),
                      index)
