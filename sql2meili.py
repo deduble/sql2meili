@@ -10,6 +10,7 @@ from math import ceil
 from os.path import isfile
 from sys import exit as sys_exit
 from typing import List, Dict
+from urllib.parse import quote
 
 import jsonschema
 import meilisearch
@@ -43,7 +44,7 @@ class DatabaseConn:
     ) -> None:
         self.tables = tables
         self.database_url = (
-            f"{adapter}://{username}:{password}@{host}:{port}/{database_name}")
+            f"{adapter}://{username}:{quote(password)}@{host}:{port}/{database_name}")
 
     def connect_to_db(self) -> None:
         """
